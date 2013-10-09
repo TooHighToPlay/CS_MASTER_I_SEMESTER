@@ -24,10 +24,11 @@ Disclaimer
 
 This pack is only for learning intention.
 
-P.S.
+Notes
 -----
-Content can be out of date. Please update and make a pull request.
 
-Please follow me on ->
+Report bugs, errors, misunderstandings, bad coding style or whatever content you think needs to be corrected or upgraded directly to me.
+
+Follow me on ->
 
     * https://twitter.com/TooHighToPlay

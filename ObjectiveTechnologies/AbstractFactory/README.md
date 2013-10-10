@@ -4,7 +4,9 @@ Abstract Factory
 Description
 -----------
 
-First labaratory work. Understanding creational patterns.
+First labaratory work.
+
+Understanding creational patterns.
 
 Requirements
 ------------
@@ -32,3 +34,14 @@ Choose and implement concrete situation following these requirements:
     !!! In case of Prototype example - demonstrate alternative that class objects can be used instead of prototypes.
 
 Note: Abstractions of products, their families and factory and the client must be the same in both projects. Only factory implementation, and creation/initialization of concrete factory differs.
+
+Solution
+--------
+
+Abstract factory using method producer UML diagram:
+
+![alt tag]()
+
+Abstract factory using prototype:
+
+![alt tag]()

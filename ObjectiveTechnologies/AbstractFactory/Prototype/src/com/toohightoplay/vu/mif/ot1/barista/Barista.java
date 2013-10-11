@@ -1,5 +1,9 @@
 package com.toohightoplay.vu.mif.ot1.barista;
 
+import com.toohightoplay.vu.mif.ot1.products.Beer;
+import com.toohightoplay.vu.mif.ot1.products.Meal;
+import com.toohightoplay.vu.mif.ot1.products.Snacks;
+
 /**
  * 
  * @author TooHighToPlay

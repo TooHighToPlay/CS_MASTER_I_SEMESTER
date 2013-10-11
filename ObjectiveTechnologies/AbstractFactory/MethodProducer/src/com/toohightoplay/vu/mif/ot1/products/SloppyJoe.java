@@ -7,9 +7,7 @@ public class SloppyJoe implements Meal {
 
     @Override
     public void eat() {
-
-        // TODO Auto-generated method stub
-
+    	System.out.println("Eating some delicious Sloppy Joe.. Mhm..");
     }
 
 }

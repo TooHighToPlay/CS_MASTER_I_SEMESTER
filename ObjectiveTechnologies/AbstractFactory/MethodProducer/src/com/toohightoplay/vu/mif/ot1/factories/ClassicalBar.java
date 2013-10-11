@@ -1,7 +1,10 @@
 package com.toohightoplay.vu.mif.ot1.factories;
 
 import com.toohightoplay.vu.mif.ot1.products.Beer;
+import com.toohightoplay.vu.mif.ot1.products.FishAndChips;
+import com.toohightoplay.vu.mif.ot1.products.GuinessBeer;
 import com.toohightoplay.vu.mif.ot1.products.Meal;
+import com.toohightoplay.vu.mif.ot1.products.Nuts;
 import com.toohightoplay.vu.mif.ot1.products.Snacks;
 
 /**
@@ -12,21 +15,18 @@ public class ClassicalBar extends Bar {
     @Override
     public Snacks serveSnacks() {
 
-        // TODO Auto-generated method stub
-        return null;
+        return new Nuts();
     }
 
     @Override
     public Meal serveMeal() {
 
-        // TODO Auto-generated method stub
-        return null;
+        return new FishAndChips();
     }
 
     @Override
     public Beer serveBeer() {
 
-        // TODO Auto-generated method stub
-        return null;
+        return new GuinessBeer();
     }
 }

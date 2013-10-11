@@ -7,9 +7,7 @@ public class FishAndChips implements Meal {
 
     @Override
     public void eat() {
-
-        // TODO Auto-generated method stub
-
+    	System.out.println("Eating like in London pub.");
     }
 
 }

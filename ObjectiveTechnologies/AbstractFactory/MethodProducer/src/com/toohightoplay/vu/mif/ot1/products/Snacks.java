@@ -5,4 +5,6 @@ package com.toohightoplay.vu.mif.ot1.products;
  */
 public interface Snacks {
 
+	public abstract void nibble();
+	
 }

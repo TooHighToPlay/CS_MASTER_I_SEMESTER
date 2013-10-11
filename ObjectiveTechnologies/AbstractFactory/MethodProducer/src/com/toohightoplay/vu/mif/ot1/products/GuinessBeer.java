@@ -7,9 +7,7 @@ public class GuinessBeer implements Beer {
 
     @Override
     public void drink() {
-
-        // TODO Auto-generated method stub
-
+        System.out.println("Gently and softly.. Sip by sip.");
     }
 
 }

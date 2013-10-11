@@ -40,8 +40,8 @@ Solution
 
 Abstract factory using method producer UML diagram:
 
-![alt tag]()
+![alt tag](https://github.com/TooHighToPlay/CS_MASTER_I_SEMESTER/blob/master/ObjectiveTechnologies/AbstractFactory/abstractfactory.png)
 
 Abstract factory using prototype:
 
-![alt tag]()
+![alt tag](https://github.com/TooHighToPlay/CS_MASTER_I_SEMESTER/blob/master/ObjectiveTechnologies/AbstractFactory/prototype.png)

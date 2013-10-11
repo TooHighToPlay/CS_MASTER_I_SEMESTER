@@ -168,7 +168,7 @@ public class Client {
 				bar.serveMeal().eat();
 				break;
 			case GO_HOME:
-				System.out.println("Thanks. I would like to go home.");
+				System.out.println("I am so drunk I can touch the sky. So long fella");
 				break;
 			default:
 				System.out.println("Sorry Mister, we do not have that");

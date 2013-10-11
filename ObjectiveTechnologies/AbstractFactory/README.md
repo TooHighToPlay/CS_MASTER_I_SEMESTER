@@ -40,8 +40,7 @@ Solution
 
 Abstract factory using method producer UML diagram:
 
-![Settings Window](https://github.com/TooHighToPlay/CS_MASTER_I_SEMESTER/blob/master/ObjectiveTechnologies/AbstractFactory/abstractfactory.png)
+<img src="https://github.com/TooHighToPlay/CS_MASTER_I_SEMESTER/blob/master/ObjectiveTechnologies/AbstractFactory/abstractfactory.png" alt="Method_Producer" title="Method Producer" />
 
-Abstract factory using prototype:
 
-![Settings Window](https://github.com/TooHighToPlay/CS_MASTER_I_SEMESTER/blob/master/ObjectiveTechnologies/AbstractFactory/prototype.png)
+<img src="https://github.com/TooHighToPlay/CS_MASTER_I_SEMESTER/blob/master/ObjectiveTechnologies/AbstractFactory/prototype.png" alt="Prototype" title="Prototype" />

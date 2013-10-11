@@ -1,5 +1,6 @@
 package com.toohightoplay.vu.mif.ot1.factories;
 
+import com.toohightoplay.vu.mif.ot1.barista.GentleBarista;
 import com.toohightoplay.vu.mif.ot1.products.Beer;
 import com.toohightoplay.vu.mif.ot1.products.FishAndChips;
 import com.toohightoplay.vu.mif.ot1.products.GuinessBeer;
@@ -12,21 +13,25 @@ import com.toohightoplay.vu.mif.ot1.products.Snacks;
  */
 public class ClassicalBar extends Bar {
 
+	public ClassicalBar() {
+		this.barista = new GentleBarista();
+	}
+	
     @Override
     public Snacks serveSnacks() {
 
-        return new Nuts();
+        return barista.serveSnacks();
     }
 
     @Override
     public Meal serveMeal() {
 
-        return new FishAndChips();
+        return barista.serveMeal();
     }
 
     @Override
     public Beer serveBeer() {
 
-        return new GuinessBeer();
+        return barista.serveBeer();
     }
 }

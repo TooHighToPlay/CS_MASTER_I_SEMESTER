@@ -10,7 +10,7 @@ import com.toohightoplay.vu.mif.ot1.products.Snacks;
  */
 public abstract class Bar {
 
-	protected Barista basrista;
+	protected Barista barista;
 	
     public abstract Beer serveBeer();
 

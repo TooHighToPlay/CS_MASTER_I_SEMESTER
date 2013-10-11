@@ -10,4 +10,8 @@ public class Nuts implements Snacks {
 		System.out.println("Taking some nuts. Nibling..");
 	}
 
+	@Override
+	public Snacks clone() {
+		return new Nuts();
+	}
 }

@@ -10,4 +10,8 @@ public class FishAndChips implements Meal {
     	System.out.println("Eating like in London pub.");
     }
 
+    @Override
+	public Meal clone() {
+    	return new FishAndChips();
+    }
 }

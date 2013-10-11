@@ -17,9 +17,9 @@ public abstract class Barista {
 	
 	protected static Snacks snacks = null;
 	
-	public abstract void serveBeer();
+	public abstract Beer serveBeer();
 	
-	public abstract void serveMeal();
+	public abstract Meal serveMeal();
 	
-	public abstract void serveSnacks();
+	public abstract Snacks serveSnacks();
 }

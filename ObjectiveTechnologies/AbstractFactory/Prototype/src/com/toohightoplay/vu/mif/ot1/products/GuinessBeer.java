@@ -9,5 +9,10 @@ public class GuinessBeer implements Beer {
     public void drink() {
         System.out.println("Gently and softly.. Sip by sip.");
     }
+    
+    @Override
+	public Beer clone() {
+    	return new GuinessBeer();
+    }
 
 }

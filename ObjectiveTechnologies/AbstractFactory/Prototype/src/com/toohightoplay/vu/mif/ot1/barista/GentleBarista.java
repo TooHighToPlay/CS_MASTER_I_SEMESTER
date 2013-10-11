@@ -1,34 +1,31 @@
 package com.toohightoplay.vu.mif.ot1.barista;
 
 import com.toohightoplay.vu.mif.ot1.products.Beer;
-import com.toohightoplay.vu.mif.ot1.products.GrinbergenBeer;
+import com.toohightoplay.vu.mif.ot1.products.FishAndChips;
+import com.toohightoplay.vu.mif.ot1.products.GuinessBeer;
 import com.toohightoplay.vu.mif.ot1.products.Meal;
-import com.toohightoplay.vu.mif.ot1.products.SloppyJoe;
+import com.toohightoplay.vu.mif.ot1.products.Nuts;
 import com.toohightoplay.vu.mif.ot1.products.Snacks;
-import com.toohightoplay.vu.mif.ot1.products.Taco;
 
 /**
  * 
  * @author TooHighToPlay
  *
  */
-public class BroBarista extends Barista{
+public class GentleBarista extends Barista {
 
 	@Override
 	public Beer serveBeer() {
-		
 		if (beer == null) {
-			beer = new GrinbergenBeer();
+			beer = new GuinessBeer();
 		}
-		
 		return beer.clone();
 	}
 
 	@Override
 	public Meal serveMeal() {
-		
 		if (meal == null) {
-			meal = new SloppyJoe();
+			meal = new FishAndChips();
 		}
 		
 		return meal.clone();
@@ -36,9 +33,8 @@ public class BroBarista extends Barista{
 
 	@Override
 	public Snacks serveSnacks() {
-		
 		if (snacks == null) {
-			snacks = new Taco();
+			snacks = new Nuts();
 		}
 		
 		return snacks.clone();

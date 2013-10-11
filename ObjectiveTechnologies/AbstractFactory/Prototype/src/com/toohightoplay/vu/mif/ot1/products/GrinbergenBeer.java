@@ -13,5 +13,11 @@ public class GrinbergenBeer implements Beer {
     public void drinkWithEffects() {
     	System.out.println("I drasgsf thisss Grinbergen with an attitude. Be my paladin, be my guest, you will always be loved. Just bring me moore beer");
     }
+    
+    @Override
+	public Beer clone() {
+    	
+    	return new GrinbergenBeer();
+    }
 
 }

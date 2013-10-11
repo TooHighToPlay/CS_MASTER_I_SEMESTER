@@ -10,4 +10,8 @@ public class Taco implements Snacks {
 		System.out.println("Taco is my favorite hero. Can I order one more?");
 	}
 
+	@Override
+	public Snacks clone() {
+		return new Taco();
+	}
 }

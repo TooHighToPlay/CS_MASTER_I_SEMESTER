@@ -15,19 +15,19 @@ public class ProgrammersBar extends Bar {
     @Override
     public Snacks serveSnacks() {
 
-        return new Taco();
+        return barista.serveSnacks();
     }
 
     @Override
     public Meal serveMeal() {
 
-        return new SloppyJoe();
+        return barista.serveMeal();
     }
 
     @Override
     public Beer serveBeer() {
 
-        return new GrinbergenBeer();
+        return barista.serveBeer();
     }
 
 }

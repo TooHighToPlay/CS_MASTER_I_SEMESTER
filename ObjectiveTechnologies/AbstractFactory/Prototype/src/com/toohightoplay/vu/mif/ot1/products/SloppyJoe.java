@@ -9,5 +9,10 @@ public class SloppyJoe implements Meal {
     public void eat() {
     	System.out.println("Eating some delicious Sloppy Joe.. Mhm..");
     }
+    
+    @Override
+	public Meal clone() {
+    	return new SloppyJoe();
+    }
 
 }

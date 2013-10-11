@@ -10,7 +10,7 @@ import com.toohightoplay.vu.mif.ot1.products.Snacks;
 /**
  * 
  * @author TooHighToPlay
- *
+ * 
  */
 public class GentleBarista extends Barista {
 
@@ -27,7 +27,7 @@ public class GentleBarista extends Barista {
 		if (meal == null) {
 			meal = new FishAndChips();
 		}
-		
+
 		return meal.clone();
 	}
 
@@ -36,7 +36,19 @@ public class GentleBarista extends Barista {
 		if (snacks == null) {
 			snacks = new Nuts();
 		}
-		
+
+		Class c = Nuts.class;
+		try {
+			Snacks snack = (Snacks) c.newInstance();
+			System.out.println("Returning instance generated with reflection");
+			return snack;
+		} catch (InstantiationException e) {
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			e.printStackTrace();
+		}
+
+		System.out.println("Some error occured, returning clone");
 		return snacks.clone();
 	}
 

@@ -38,9 +38,12 @@ Note: Abstractions of products, their families and factory and the client must b
 Solution
 --------
 
-Abstract factory using method producer UML diagram:
+The following UML diagrams are being provided:
+
+### Abstract factory using method producer
 
 <img src="https://raw.github.com/TooHighToPlay/CS_MASTER_I_SEMESTER/master/ObjectiveTechnologies/AbstractFactory/abstractfactory.png" alt="Method_Producer" title="Method Producer" />
 
+### Abstract factory using prototype
 
 <img src="https://raw.github.com/TooHighToPlay/CS_MASTER_I_SEMESTER/master/ObjectiveTechnologies/AbstractFactory/prototype.png" alt="Prototype" title="Prototype" />

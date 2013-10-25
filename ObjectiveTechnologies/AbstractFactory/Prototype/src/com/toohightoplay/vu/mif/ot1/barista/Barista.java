@@ -11,11 +11,11 @@ import com.toohightoplay.vu.mif.ot1.products.Snacks;
  */
 public abstract class Barista {
 
-	protected static Beer beer = null;
+	protected Beer beer = null;
 	
-	protected static Meal meal = null;
+	protected Meal meal = null;
 	
-	protected static Snacks snacks = null;
+	protected Snacks snacks = null;
 	
 	public abstract Beer serveBeer();
 	

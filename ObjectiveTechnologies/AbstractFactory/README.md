@@ -21,7 +21,7 @@ Choose and implement concrete situation following these requirements:
 
     * Parameters to create a product must be provided regarding their kind. Client must get the values of these parameters dynamically (before creating / runtime).
 
-    * Concrete implementations of the same product kinds have different creation/initialization parameters and/or methods.
+    * Concrete implementations of the same product kinds have different creation/initialization parameters and methods.
 
     * Which family of products is being used depends on environment variable value or command line argument value.
 

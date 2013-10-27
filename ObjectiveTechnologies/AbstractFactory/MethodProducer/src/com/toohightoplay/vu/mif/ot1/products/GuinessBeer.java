@@ -5,9 +5,22 @@ package com.toohightoplay.vu.mif.ot1.products;
  */
 public class GuinessBeer implements Beer {
 
+	private String greetings;
+	
+	public GuinessBeer(String greetings) {
+		this.greetings = greetings;
+	}
+	
     @Override
     public void drink() {
         System.out.println("Gently and softly.. Sip by sip.");
+    }
+    
+    /**
+     * Greeting letter from you princess.
+     */
+    public void readGreeting() {
+    	System.out.println(greetings);
     }
 
 }

@@ -15,18 +15,18 @@ public class ClassicalBar extends Bar {
     @Override
     public Snacks serveSnacks() {
 
-        return new Nuts();
+        return new Nuts("almonds" , 50);
     }
 
     @Override
     public Meal serveMeal() {
 
-        return new FishAndChips();
+        return new FishAndChips(20);
     }
 
     @Override
     public Beer serveBeer() {
 
-        return new GuinessBeer();
+        return new GuinessBeer("Taste it. Believe it.");
     }
 }

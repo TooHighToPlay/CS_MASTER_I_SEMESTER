@@ -5,10 +5,7 @@ import java.util.Scanner;
 import com.toohightoplay.vu.mif.ot1.factories.Bar;
 import com.toohightoplay.vu.mif.ot1.factories.ClassicalBar;
 import com.toohightoplay.vu.mif.ot1.factories.ProgrammersBar;
-import com.toohightoplay.vu.mif.ot1.products.Beer;
 import com.toohightoplay.vu.mif.ot1.products.GrinbergenBeer;
-import com.toohightoplay.vu.mif.ot1.products.Meal;
-import com.toohightoplay.vu.mif.ot1.products.Snacks;
 
 /**
  * @author TooHighToPlay

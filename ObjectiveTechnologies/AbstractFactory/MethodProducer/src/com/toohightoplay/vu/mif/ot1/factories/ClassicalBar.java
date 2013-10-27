@@ -10,7 +10,7 @@ import com.toohightoplay.vu.mif.ot1.products.Snacks;
 /**
  * @author TooHighToPlay
  */
-public class ClassicalBar extends Bar {
+public class ClassicalBar implements Bar {
 
     @Override
     public Snacks serveSnacks() {

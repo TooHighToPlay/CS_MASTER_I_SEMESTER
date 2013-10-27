@@ -12,7 +12,7 @@ import com.toohightoplay.vu.mif.ot1.products.Taco;
 /**
  * @author TooHighToPlay
  */
-public class ProgrammersBar extends Bar {
+public class ProgrammersBar implements Bar {
 
     @Override
     public Snacks serveSnacks() {

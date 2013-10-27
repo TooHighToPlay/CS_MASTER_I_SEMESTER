@@ -6,18 +6,18 @@ import java.security.SecureRandom;
  * @author TooHighToPlay
  */
 public class GrinbergenBeer implements Beer {
-	
+
 	public static final int MAX_TO_GENERATE = 100;
-	
+
 	private double promiles;
-	
+
 	private int luckyNumber;
-	
+
 	private Integer actualNumber = null;
-	
+
 	/**
 	 * I would choose luckyNumber wisely. [0..100]???
-	 * 
+	 *
 	 * @param promiles
 	 * @param luckyNumber
 	 */
@@ -25,8 +25,17 @@ public class GrinbergenBeer implements Beer {
 		this.promiles = promiles;
 		this.luckyNumber = luckyNumber;
 	}
-	
-	public void tryWinLottery() {
+
+    @Override
+    public void drink() {
+    	System.out.println("I drank this " + promiles + " promiles Grinbergen almost as fast as Rob Ashton.");
+    }
+
+    public void drinkWithEffects() {
+    	System.out.println("I drasgsf thisss Grinbergen with an attitude. Be my paladin, be my guest, you will always be loved. Just bring me moore beer");
+    }
+
+    public void tryWinLottery() {
 		if (actualNumber == null) {
 			SecureRandom randomGenerator = new SecureRandom();
 			actualNumber = randomGenerator.nextInt(MAX_TO_GENERATE);
@@ -37,14 +46,5 @@ public class GrinbergenBeer implements Beer {
 		}
 		System.out.println("U lost the lotterry sir. Try another time");
 	}
-	
-    @Override
-    public void drink() {
-    	System.out.println("I drank this " + promiles + " promiles Grinbergen almost as fast as Rob Ashton.");
-    }
-    
-    public void drinkWithEffects() {
-    	System.out.println("I drasgsf thisss Grinbergen with an attitude. Be my paladin, be my guest, you will always be loved. Just bring me moore beer");
-    }
-    
+
 }

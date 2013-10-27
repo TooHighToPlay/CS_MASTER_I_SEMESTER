@@ -7,7 +7,7 @@ import com.toohightoplay.vu.mif.ot1.products.Snacks;
 /**
  * @author TooHighToPlay
  */
-public abstract class Bar {
+public interface Bar {
 
     public abstract Beer serveBeer();
 

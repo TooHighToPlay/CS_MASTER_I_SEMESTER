@@ -38,6 +38,11 @@ public class BarGuru {
 		return new PrototypeBar(exampleBeer, exampleMeal, exampleSnacks);
 	}
 
+	/**
+	 * Go to hacker's bar and fly away.
+	 * 
+	 * @return
+	 */
 	public static Bar gotoHackersBar() {
 
 		Beer exampleBeer = new GrinbergenBeer(5.8, generateLuckyNumber());
@@ -47,6 +52,11 @@ public class BarGuru {
 		return new PrototypeBar(exampleBeer, exampleMeal, exampleSnacks);
 	}
 
+	/**
+	 * Generates random lucky number. Muahahaha.
+	 * 
+	 * @return
+	 */
 	private static int generateLuckyNumber() {
 		SecureRandom randomGenerator = new SecureRandom();
 		return randomGenerator.nextInt(GrinbergenBeer.MAX_TO_GENERATE);

@@ -41,10 +41,13 @@ In configuration file the following information must be provided.
     Product-prototype class;
     Product-prototype object attributes: 'name'='value';
 
-
-Note:
-
 Solution
 --------
 
 I will make it
+
+The following UML diagrams are being provided:
+
+### Product Trader
+
+<img src="https://raw.github.com/TooHighToPlay/CS_MASTER_I_SEMESTER/master/ObjectiveTechnologies/ProductTrader/producttrader.png" alt="Method_Producer" title="Method Producer" />

@@ -37,6 +37,7 @@ public class PrototypeBar implements Bar {
 
 	@Override
 	public Snacks serveSnacks() {
+
 		return exampleSnacks.clone();
 	}
 

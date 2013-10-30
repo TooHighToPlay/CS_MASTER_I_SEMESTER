@@ -1,4 +1,5 @@
 package com.toohightoplay.vu.mif.ot2.products;
+
 import com.toohightoplay.vu.mif.ot2.products.parts.SuperPower;
 
 /**

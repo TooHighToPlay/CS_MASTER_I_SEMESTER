@@ -1,4 +1,5 @@
 package com.toohightoplay.vu.mif.ot2.products.parts;
+
 import com.toohightoplay.vu.mif.ot2.products.AbleToDeepCloneItself;
 
 /**
@@ -21,7 +22,6 @@ public class SuperPower implements AbleToDeepCloneItself<SuperPower> {
 		return superPowerName;
 	}
 
-	@Override
 	public SuperPower deepClone() {
 
 		return new SuperPower(superPowerName);

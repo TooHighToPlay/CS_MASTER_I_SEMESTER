@@ -1,4 +1,5 @@
 package com.toohightoplay.vu.mif.ot2.products;
+
 import com.toohightoplay.vu.mif.ot2.products.parts.SuperPower;
 
 /**
@@ -17,7 +18,6 @@ public class Bird extends DomesticAnimal {
 		this.superPower = superPower;
 	}
 
-	@Override
 	public DomesticAnimal deepClone() {
 
 		return new Bird(legsCount, eggsPerLay, superPower.deepClone());
@@ -38,7 +38,6 @@ public class Bird extends DomesticAnimal {
 		System.out.println("Bird's special super power is " + superPower);
 	}
 
-	@Override
 	public DomesticAnimal createFromString(String string) {
 
 		String[] valueKeyPairs = string.trim().split(";");

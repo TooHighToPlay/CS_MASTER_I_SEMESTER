@@ -1,4 +1,5 @@
 package com.toohightoplay.vu.mif.ot2.products;
+
 /**
  * @author TooHighToPlay
  * 
@@ -12,7 +13,6 @@ public class Pussy extends DomesticAnimal {
 		this.specialPhrase = specialPhrase;
 	}
 
-	@Override
 	public DomesticAnimal deepClone() {
 
 		return new Pussy(legsCount, specialPhrase);
@@ -23,7 +23,6 @@ public class Pussy extends DomesticAnimal {
 		System.out.println(specialPhrase + "!!!");
 	}
 
-	@Override
 	public DomesticAnimal createFromString(String string) {
 
 		String[] valueKeyPairs = string.trim().split(";");

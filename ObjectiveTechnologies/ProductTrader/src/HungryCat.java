@@ -4,7 +4,7 @@
  */
 public class HungryCat extends WildAnimal {
 
-	private final String scarySound;
+	protected final String scarySound;
 
 	public HungryCat(String scarySound) {
 		this.scarySound = scarySound;
@@ -20,6 +20,13 @@ public class HungryCat extends WildAnimal {
 	public WildAnimal deepClone() {
 
 		return new HungryCat(scarySound);
+	}
+
+	@Override
+	public WildAnimal createFromString(String string) {
+
+		String[] valueKeyPairs = string.trim().split(";");
+		return new HungryCat(valueKeyPairs[0]);
 	}
 
 }

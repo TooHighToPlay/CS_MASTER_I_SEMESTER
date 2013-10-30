@@ -4,7 +4,7 @@
  */
 public class Pussy extends DomesticAnimal {
 
-	private final String specialPhrase;
+	protected final String specialPhrase;
 
 	public Pussy(int legsCount, String specialPhrase) {
 		this.legsCount = legsCount;
@@ -20,6 +20,13 @@ public class Pussy extends DomesticAnimal {
 	@Override
 	public void beCute() {
 		System.out.println(specialPhrase + "!!!");
+	}
+
+	@Override
+	public DomesticAnimal createFromString(String string) {
+
+		String[] valueKeyPairs = string.trim().split(";");
+		return new Pussy(Integer.parseInt(valueKeyPairs[0]), valueKeyPairs[1]);
 	}
 
 }

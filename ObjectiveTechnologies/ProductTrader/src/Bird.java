@@ -34,4 +34,13 @@ public class Bird extends DomesticAnimal {
 	public void specialPower() {
 		System.out.println("Bird's special super power is " + superPower);
 	}
+
+	@Override
+	public DomesticAnimal createFromString(String string) {
+
+		String[] valueKeyPairs = string.trim().split(";");
+		return new Bird(Integer.parseInt(valueKeyPairs[0]),
+				Integer.parseInt(valueKeyPairs[1]), new SuperPower(
+						valueKeyPairs[2]));
+	}
 }

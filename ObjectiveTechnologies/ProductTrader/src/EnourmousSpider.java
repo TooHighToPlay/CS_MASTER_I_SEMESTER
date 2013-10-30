@@ -4,11 +4,11 @@
  */
 public class EnourmousSpider extends WildAnimal {
 
+	protected final int legsCount;
+
+	protected final boolean makesNetwork;
+
 	private static final String THREATENING_MOTO = "Ppttssss";
-
-	private final int legsCount;
-
-	private final boolean makesNetwork;
 
 	public EnourmousSpider(int legsCount, boolean makesNetwork) {
 		this.legsCount = legsCount;
@@ -29,6 +29,14 @@ public class EnourmousSpider extends WildAnimal {
 	public WildAnimal deepClone() {
 
 		return new EnourmousSpider(legsCount, makesNetwork);
+	}
+
+	@Override
+	public WildAnimal createFromString(String string) {
+
+		String[] valueKeyPairs = string.trim().split(";");
+		return new EnourmousSpider(Integer.parseInt(valueKeyPairs[0]),
+				Boolean.parseBoolean(valueKeyPairs[1]));
 	}
 
 	private String getAttackPhrase() {

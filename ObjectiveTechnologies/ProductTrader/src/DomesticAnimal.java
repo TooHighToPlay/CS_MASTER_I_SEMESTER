@@ -3,7 +3,8 @@
  * 
  */
 public abstract class DomesticAnimal implements
-		AbleToDeepCloneItself<DomesticAnimal> {
+		AbleToDeepCloneItself<DomesticAnimal>,
+		CreatableFromString<DomesticAnimal> {
 
 	protected int legsCount;
 

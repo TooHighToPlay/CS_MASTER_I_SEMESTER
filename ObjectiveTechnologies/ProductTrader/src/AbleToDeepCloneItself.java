@@ -1,4 +1,9 @@
 /**
+ * Class represents that a class will be deep cloneable.
+ * 
+ * To support easy usage please make all relevant/important objects above or
+ * equal visibility of protected.
+ * 
  * @author TooHighToPlay
  * 
  */

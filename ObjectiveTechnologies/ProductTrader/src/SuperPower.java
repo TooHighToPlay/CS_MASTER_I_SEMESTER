@@ -4,7 +4,7 @@
  */
 public class SuperPower implements AbleToDeepCloneItself<SuperPower> {
 
-	private String superPowerName;
+	protected String superPowerName;
 
 	public SuperPower(String superPowerName) {
 		this.superPowerName = superPowerName;

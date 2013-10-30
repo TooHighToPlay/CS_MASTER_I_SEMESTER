@@ -4,9 +4,9 @@
  */
 public class MightyGoose extends Bird {
 
-	private static final String MIGHTY_GOOSE = "Mighty Goose";
+	protected final String specialWeapon;
 
-	private final String specialWeapon;
+	private static final String MIGHTY_GOOSE = "Mighty Goose";
 
 	public MightyGoose(int legsCount, int eggsPerLay, SuperPower superPower,
 			String specialWeapon) {
@@ -19,6 +19,15 @@ public class MightyGoose extends Bird {
 
 		return new MightyGoose(legsCount, eggsPerLay, superPower.deepClone(),
 				specialWeapon);
+	}
+
+	@Override
+	public DomesticAnimal createFromString(String string) {
+
+		String[] valueKeyPairs = string.trim().split(";");
+		return new MightyGoose(Integer.parseInt(valueKeyPairs[0]),
+				Integer.parseInt(valueKeyPairs[1]), new SuperPower(
+						valueKeyPairs[2]), valueKeyPairs[3]);
 	}
 
 	public void specialAttack() {

@@ -1,5 +1,8 @@
 package com.toohightoplay.vu.mif.ot2.specification;
 
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
+
 /**
  * @author TooHighToPlay
  * 
@@ -30,11 +33,20 @@ public class WildAnimalSpecification implements Specification {
 			return false;
 		}
 
-		return species.equalsIgnoreCase(((WildAnimalSpecification) obj)
-				.getSpecies())
-				&& scaryPhrase.equalsIgnoreCase(((WildAnimalSpecification) obj)
-						.getScaryPhrase())
-				&& legs == ((WildAnimalSpecification) obj).getLegs();
+		return new EqualsBuilder()
+				// if deriving: appendSuper(super.equals(obj)).
+				.append(species, ((WildAnimalSpecification) obj).getSpecies())
+				.append(scaryPhrase,
+						((WildAnimalSpecification) obj).getScaryPhrase())
+				.append(legs, ((WildAnimalSpecification) obj).getLegs())
+				.isEquals();
+	}
+
+	@Override
+	public int hashCode() {
+		return new HashCodeBuilder(17, 31). // two random chosen prime numbers
+				// if deriving: appendSuper(super.hashCode())
+				append(species).append(scaryPhrase).append(legs).toHashCode();
 	}
 
 	/**

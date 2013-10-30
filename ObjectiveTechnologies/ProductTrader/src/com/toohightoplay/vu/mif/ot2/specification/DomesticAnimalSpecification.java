@@ -1,5 +1,8 @@
 package com.toohightoplay.vu.mif.ot2.specification;
 
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
+
 /**
  * @author TooHighToPlay
  * 
@@ -31,12 +34,21 @@ public class DomesticAnimalSpecification implements Specification {
 			return false;
 		}
 
-		return species.equalsIgnoreCase(((DomesticAnimalSpecification) obj)
-				.getSpecies())
-				&& role.equalsIgnoreCase(((DomesticAnimalSpecification) obj)
-						.getRole())
-				&& eggsCount == ((DomesticAnimalSpecification) obj)
-						.getEggsCount();
+		return new EqualsBuilder()
+				// if deriving: appendSuper(super.equals(obj)).
+				.append(species,
+						((DomesticAnimalSpecification) obj).getSpecies())
+				.append(role, ((DomesticAnimalSpecification) obj).getRole())
+				.append(eggsCount,
+						((DomesticAnimalSpecification) obj).getEggsCount())
+				.isEquals();
+	}
+
+	@Override
+	public int hashCode() {
+		return new HashCodeBuilder(17, 31). // two random chosen prime numbers
+				// if deriving: appendSuper(super.hashCode())
+				append(species).append(role).append(eggsCount).toHashCode();
 	}
 
 	/**

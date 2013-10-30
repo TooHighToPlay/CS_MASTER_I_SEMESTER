@@ -1,3 +1,6 @@
+package com.toohightoplay.vu.mif.ot2.products.parts;
+import com.toohightoplay.vu.mif.ot2.products.AbleToDeepCloneItself;
+
 /**
  * @author TooHighToPlay
  * 

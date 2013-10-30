@@ -1,4 +1,7 @@
+package com.toohightoplay.vu.mif.ot2.trader;
 import java.util.Hashtable;
+
+import com.toohightoplay.vu.mif.ot2.specification.Specification;
 
 /**
  * Product trader

@@ -1,15 +1,19 @@
 <?xml version="1.0"?>
 <mapper>
 	<map>
-		<specificationClass>com.toohightoplay.vu.mif.ot2.specification.WildAnimalSpecification</specificationClass>
-		<specificationString>species="tiger";</specificationString>
-		<productClass>com.toohightoplay.vu.mif.ot2.products.Pussy</productClass>
-		<productString>legsCount</productString>
-	</map>
-	<map>
-		<specificationClass>yong</specificationClass>
-		<specificationString>mook kim</specificationString>
-		<productClass>mkyong</productClass>
-		<productString>100000</productString>
+		<specificationClass>com.toohightoplay.vu.mif.ot2.specification.WildAnimalSpecification
+		</specificationClass>
+		<specificationProperties>
+			<species>BigKitty</species>
+			<scaryPhrase>Roawrr</scaryPhrase>
+			<legs>4</legs>
+		</specificationProperties>
+		<productClass>com.toohightoplay.vu.mif.ot2.products.Pussy
+		</productClass>
+		<productProperties>
+			<species>ForbiddenJoy</species>
+			<role>pet</role>
+			<legs>4</legs>
+		</productProperties>
 	</map>
 </mapper>

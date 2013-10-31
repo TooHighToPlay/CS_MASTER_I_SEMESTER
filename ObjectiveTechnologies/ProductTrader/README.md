@@ -44,10 +44,32 @@ In configuration file the following information must be provided.
 Solution
 --------
 
-I will make it
-
-The following UML diagrams are being provided:
-
-### Product Trader
+### Product Trader UML
 
 <img src="https://raw.github.com/TooHighToPlay/CS_MASTER_I_SEMESTER/master/ObjectiveTechnologies/ProductTrader/producttrader.png" alt="Method_Producer" title="Method Producer" />
+
+### Configuration file structure
+
+    <?xml version="1.0"?>
+    <mapper>
+        <map>
+            <specificationClass>com.toohightoplay.vu.mif.ot2.specification.WildAnimalSpecification
+            </specificationClass>
+            <specificationProperties>
+                <species>BigKitty</species>
+                <scaryPhrase>Roawrr</scaryPhrase>
+                <legs>4</legs>
+            </specificationProperties>
+            <productClass>com.toohightoplay.vu.mif.ot2.products.Pussy
+            </productClass>
+            <productProperties>
+                <species>ForbiddenJoy</species>
+                <role>pet</role>
+                <legs>4</legs>
+            </productProperties>
+        </map>
+    </mapper>
+
+### Restrictions
+
+Please note that all product classes and their components must implement AbleToDeepCloneItself<<interface>> and provide at least protected getters for them.

@@ -72,4 +72,6 @@ Solution
 
 ### Restrictions
 
-Please note that all product classes and their components must implement AbleToDeepCloneItself<<interface>> and provide at least protected getters for them.
+Please note that all product classes and their components can implement AbleToDeepCloneItself<<interface>> and provide at least protected getters for them, then your deepClone method would rely on these.
+
+In this particular case I use protected variables because I do not want to change them.

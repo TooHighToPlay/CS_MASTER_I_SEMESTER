@@ -1,3 +1,4 @@
+package com.toohightoplay.vu.mif.ot2.specification;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;

@@ -2,9 +2,9 @@
 <mapper>
 	<map>
 		<specificationClass>com.toohightoplay.vu.mif.ot2.specification.WildAnimalSpecification</specificationClass>
-		<specificationString>mook kim</specificationString>
-		<productClass>mkyong</productClass>
-		<productString>100000</productString>
+		<specificationString>species="tiger";</specificationString>
+		<productClass>com.toohightoplay.vu.mif.ot2.products.Pussy</productClass>
+		<productString>legsCount</productString>
 	</map>
 	<map>
 		<specificationClass>yong</specificationClass>

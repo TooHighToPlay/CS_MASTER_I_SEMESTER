@@ -48,7 +48,8 @@ public class Client {
 	 * }
 	 */
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ClassNotFoundException {
+
 		Class newClass = null;
 		Object newObject = null;
 		Constructor cons = null;

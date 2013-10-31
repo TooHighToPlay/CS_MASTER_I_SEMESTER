@@ -2,30 +2,41 @@ package com.toohightoplay.vu.mif.ot2.trader;
 
 import java.util.Hashtable;
 
-import com.toohightoplay.vu.mif.ot2.specification.Specification;
-
 /**
  * Product trader
  * 
  * @author TooHighToPlay
  * 
  */
-public abstract class ProductTrader<S, T> {
+public abstract class ProductTrader<Specification, Product> {
 
-	protected Hashtable<S, T> map;
+	protected Hashtable<Specification, Product> map;
 
 	private final String initializationFileName;
 
 	public ProductTrader(String initializationFileName) {
 		this.initializationFileName = initializationFileName;
-		map = new Hashtable<S, T>();
+		map = new Hashtable<Specification, Product>();
 		initSpecificationToProductMap();
 	}
 
-	private static <T, V> Hashtable<Specification, T> initSpecificationToProductMap() {
+	public Product tradeSpecificationToProduct(Specification specification) {
+		return map.get(specification);
+	}
+
+	/**
+	 * Initialise state from user config file.
+	 */
+	private Hashtable<Specification, Product> initSpecificationToProductMap() {
 
 		// XXX: add smth
 
 		return null;
 	}
+
+	private Product create(Specification specification) {
+
+		return null;
+	}
+
 }

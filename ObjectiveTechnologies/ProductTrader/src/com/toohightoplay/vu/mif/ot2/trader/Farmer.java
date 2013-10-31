@@ -1,4 +1,5 @@
 package com.toohightoplay.vu.mif.ot2.trader;
+
 import com.toohightoplay.vu.mif.ot2.products.DomesticAnimal;
 import com.toohightoplay.vu.mif.ot2.specification.DomesticAnimalSpecification;
 
@@ -10,14 +11,11 @@ import com.toohightoplay.vu.mif.ot2.specification.DomesticAnimalSpecification;
  * @author TooHighToPlay
  * 
  */
-public class Farmer {
+public class Farmer extends
+		ProductTrader<DomesticAnimalSpecification, DomesticAnimal> {
 
-	/**
-	 * Creator.
-	 */
-	public DomesticAnimal create(DomesticAnimalSpecification specification) {
-
-		return null;
+	public Farmer(String initializationFileName) {
+		super(initializationFileName);
 	}
 
 }

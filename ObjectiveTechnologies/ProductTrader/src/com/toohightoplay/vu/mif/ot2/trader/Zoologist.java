@@ -1,4 +1,5 @@
 package com.toohightoplay.vu.mif.ot2.trader;
+
 import com.toohightoplay.vu.mif.ot2.products.WildAnimal;
 import com.toohightoplay.vu.mif.ot2.specification.WildAnimalSpecification;
 
@@ -10,13 +11,11 @@ import com.toohightoplay.vu.mif.ot2.specification.WildAnimalSpecification;
  * @author TooHighToPlay
  * 
  */
-public class Zoologist {
+public class Zoologist extends
+		ProductTrader<WildAnimalSpecification, WildAnimal> {
 
-	/**
-	 * Creator.
-	 */
-	public WildAnimal create(WildAnimalSpecification specification) {
-
-		return null;
+	public Zoologist(String initializationFileName) {
+		super(initializationFileName);
 	}
+
 }

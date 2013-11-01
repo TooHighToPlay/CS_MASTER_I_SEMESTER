@@ -50,28 +50,26 @@ Solution
 
 ### Configuration file structure
 
-    <?xml version="1.0"?>
+    <?xml version="1.0" encoding="UTF-8" ?>
     <mapper>
         <map>
-            <specificationClass>com.toohightoplay.vu.mif.ot2.specification.WildAnimalSpecification
-            </specificationClass>
-            <specificationProperties>
-                <species>BigKitty</species>
-                <scaryPhrase>Roawrr</scaryPhrase>
-                <legs>4</legs>
-            </specificationProperties>
-            <productClass>com.toohightoplay.vu.mif.ot2.products.Pussy
-            </productClass>
-            <productProperties>
-                <species>ForbiddenJoy</species>
-                <role>pet</role>
-                <legs>4</legs>
-            </productProperties>
+            <specificationClass>com.toohightoplay.vu.mif.ot2.specification.WildAnimalSpecification</specificationClass>
+            <specificationProperties>species=BigKitty;scaryPhrase=Roawrr;legs=4</specificationProperties>
+            <productClass>com.toohightoplay.vu.mif.ot2.products.HungryCat</productClass>
+            <productProperties>scarySound=Roawrr</productProperties>
+        </map>
+        <map>
+            <specificationClass>com.toohightoplay.vu.mif.ot2.specification.DomesticAnimalSpecification</specificationClass>
+            <specificationProperties>species=Great pussy;role=Love</specificationProperties>
+            <productClass>com.toohightoplay.vu.mif.ot2.products.Pussy</productClass>
+            <productProperties>legCount=4;specialPhrase=Murrrr</productProperties>
         </map>
     </mapper>
 
 ### Restrictions
 
-Please note that all product classes and their components can implement AbleToDeepCloneItself<<interface>> and provide at least protected getters for them, then your deepClone method would rely on these.
+    [1] Please note that all product classes and their components can implement AbleToDeepCloneItself<<interface and provide at least protected getters for them, then your deepClone method would rely on these.
 
-In this particular case I use protected variables because I do not want to change them.
+    !!! In this particular case I use protected variables because I do not want to change them.
+
+    [2] <specificationProperties> and <productProperties> structure must meet constructor parameters sequence.

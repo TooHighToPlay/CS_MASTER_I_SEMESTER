@@ -1,10 +1,8 @@
 package com.toohightoplay.vu.mif.ot2.specification;
+
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
-
-import com.toohightoplay.vu.mif.ot2.specification.DomesticAnimalSpecification;
-import com.toohightoplay.vu.mif.ot2.specification.WildAnimalSpecification;
 
 /**
  * @author TooHighToPlay

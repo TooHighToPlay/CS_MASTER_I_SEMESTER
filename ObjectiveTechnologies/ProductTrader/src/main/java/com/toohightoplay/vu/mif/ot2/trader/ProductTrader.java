@@ -4,19 +4,15 @@ import java.io.IOException;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Hashtable;
+import java.util.List;
 
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
 import org.w3c.dom.DOMException;
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
-import com.toohightoplay.vu.mif.ot2.products.WildAnimal;
-import com.toohightoplay.vu.mif.ot2.specification.WildAnimalSpecification;
+import com.toohightoplay.vu.mif.ot2.parser.SpecToProductDomParser;
+import com.toohightoplay.vu.mif.ot2.parser.SpecToProductType;
 
 /**
  * Product trader
@@ -26,24 +22,11 @@ import com.toohightoplay.vu.mif.ot2.specification.WildAnimalSpecification;
  */
 public abstract class ProductTrader<Specification, Product> {
 
+	private static final String CREATIONAL_STRING = "createFromString";
+
 	protected Hashtable<Specification, Product> map;
 
 	private final String initializationFileName;
-
-	/*
-	 * public enum SpecificationStructure {
-	 * 
-	 * 
-	 * SPECIFICATION_CLASS(0),
-	 * 
-	 * SPECIFICATION_KEY_VALUE_MAP(1),
-	 * 
-	 * PRODUCT_CLASS(2),
-	 * 
-	 * PRODUCT_KEY_VALUE_MAP(3);
-	 * 
-	 * }
-	 */
 
 	public ProductTrader(String initializationFileName) {
 		this.initializationFileName = initializationFileName;
@@ -58,58 +41,68 @@ public abstract class ProductTrader<Specification, Product> {
 	/**
 	 * Initialise state from user config file.
 	 */
-	private Hashtable<Specification, Product> initSpecificationToProductMap() {
+	private void initSpecificationToProductMap() {
 
-		return null;
-	}
-
-	@SuppressWarnings("rawtypes")
-	public static void main(String[] args) throws SAXException, IOException,
-			ParserConfigurationException, ClassNotFoundException, DOMException,
-			NoSuchMethodException, SecurityException {
-		Hashtable<WildAnimalSpecification, WildAnimal> DRAKONAS = new Hashtable<WildAnimalSpecification, WildAnimal>();
-
-		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-		DocumentBuilder builder = factory.newDocumentBuilder();
-		Document document = builder.parse(ClassLoader
-				.getSystemResourceAsStream("productMapper.xml"));
-
-		NodeList specificationToProductMap = document.getDocumentElement()
-				.getChildNodes();
-
-		for (int i = 0; i < specificationToProductMap.getLength(); i++) {
-			Node map = specificationToProductMap.item(i);
-			// specificationToProductMap.item(0).getLocalName();
-			NodeList specifications = map.getChildNodes();
-			// CREATING SPECIFICATION OBJECT------------------------PARSING XML
-			// SPECIFIC DATA
-			String specificationClassName = specifications.item(0)
-					.getTextContent().trim();
-			Class[] specificationParameterTypes = getParameterTypes(specificationClassName);
-			Object[] specificationParameterValues = getParameterValues(specifications
-					.item(1).getChildNodes());
-
-			WildAnimalSpecification wildAnimalSpecification = null;
-			try {
-				wildAnimalSpecification = (WildAnimalSpecification) createParameter(
-						specificationClassName, specificationParameterTypes,
-						specificationParameterValues);
-			} catch (Exception e) {
-				System.out.println("Creation of Specification failed");
-			}
+		List<SpecToProductType> specList;
+		try {
+			specList = SpecToProductDomParser
+					.parseXmlFile(initializationFileName);
+		} catch (SAXException | IOException | ParserConfigurationException e) {
+			System.out.println("Error initializing specList");
+			return;
 		}
 
+		for (SpecToProductType specToProductType : specList) {
+
+			// ---------------------SPECIFICATION START
+			String specificationClass = specToProductType
+					.getSpecificationClass();
+
+			Class<?>[] parameterTypes;
+			try {
+				parameterTypes = getParameterTypes(specificationClass,
+						specToProductType.getSpecificationCreationString()
+								.split(";").length);
+			} catch (ClassNotFoundException e) {
+				System.out
+						.println("Smth bad happened while getting parameterTypes");
+				return;
+			}
+			Object[] complexTypeValues;
+			try {
+				complexTypeValues = getParameterValues(
+						specToProductType.getSpecificationCreationString(),
+						parameterTypes);
+			} catch (Exception e) {
+				System.out.println("UUUps, values of specification failed");
+				return;
+			}
+
+			Specification spec;
+			try {
+				spec = (Specification) createParameter(specificationClass,
+						parameterTypes, complexTypeValues);
+			} catch (ClassNotFoundException | InstantiationException
+					| IllegalAccessException | IllegalArgumentException
+					| InvocationTargetException | NoSuchMethodException
+					| SecurityException e) {
+				System.out.println("Final creation failed of specification");
+				return;
+			}
+			// ---------------------SPECIFICATION END
+
+		}
 	}
 
-	private static Class<?>[] getParameterTypes(String qualifiedClassName)
-			throws ClassNotFoundException {
+	private static Class<?>[] getParameterTypes(String qualifiedClassName,
+			int length) throws ClassNotFoundException {
 
 		Class<?> specificationClass = Class.forName(qualifiedClassName);
 
 		Constructor<?>[] constructors = specificationClass.getConstructors();
 		Constructor<?> requiredConstructor = null;
 		for (Constructor<?> constructor : constructors) {
-			if (constructor.getGenericParameterTypes().length == 2) {
+			if (constructor.getGenericParameterTypes().length == length) {
 				requiredConstructor = constructor;
 			}
 		}
@@ -117,39 +110,25 @@ public abstract class ProductTrader<Specification, Product> {
 		return (Class[]) requiredConstructor.getGenericParameterTypes();
 	}
 
-	private static Object[] getParameterValues(NodeList keyValueMap)
-			throws ClassNotFoundException, DOMException {
+	private static Object[] getParameterValues(String creationString,
+			Class<?>[] parameterTypes) throws ClassNotFoundException,
+			DOMException, InstantiationException, IllegalAccessException,
+			IllegalArgumentException, InvocationTargetException,
+			NoSuchMethodException, SecurityException {
 
-		Object[] values = new Object[keyValueMap.getLength()];
+		String[] keyValuePairs = creationString.split(";");
+		Object[] values = new Object[parameterTypes.length];
 
-		for (int i = 0; i < keyValueMap.getLength(); i++) {
-
-			Node currentElement = keyValueMap.item(i);
-			if (currentElement.hasChildNodes()) {
-				// create complex
-				// recursion
-				Class<?>[] complexTypeSubtypes = getParameterTypes(currentElement
-						.getTextContent().trim());
-				Object[] complexTypeValues = getParameterValues(currentElement
-						.getChildNodes());
-
-				try {
-					values[i] = createParameter(currentElement.getAttributes()
-							.getNamedItem("complexClass").getNodeValue(),
-							complexTypeSubtypes, complexTypeValues);
-				} catch (Exception e) {
-					System.out.println("Error creating value for Class -> "
-							+ currentElement.getNodeValue());
-				}
-			} else {
-				try {
-					values[i] = Class.forName(currentElement.getNodeValue())
-							.newInstance();
-				} catch (Exception e) {
-					System.out
-							.println("Exception occured while creating value for Class = "
-									+ currentElement.getNodeValue());
-				}
+		for (int i = 0; i < keyValuePairs.length; i++) {
+			if (parameterTypes[i].equals(int.class)
+					|| parameterTypes[i].equals(Integer.class)) {
+				values[i] = Integer.class
+						.getConstructor(Integer.TYPE)
+						.newInstance(
+								Integer.parseInt(keyValuePairs[i].split("=")[1]));
+			} else if (parameterTypes[i].equals(String.class)) {
+				values[i] = String.class.getConstructor(String.class)
+						.newInstance(keyValuePairs[i].split("=")[1]);
 			}
 		}
 

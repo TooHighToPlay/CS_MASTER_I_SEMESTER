@@ -15,6 +15,9 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
+import com.toohightoplay.vu.mif.ot2.products.WildAnimal;
+import com.toohightoplay.vu.mif.ot2.specification.WildAnimalSpecification;
+
 /**
  * Product trader
  * 
@@ -64,36 +67,36 @@ public abstract class ProductTrader<Specification, Product> {
 	public static void main(String[] args) throws SAXException, IOException,
 			ParserConfigurationException, ClassNotFoundException, DOMException,
 			NoSuchMethodException, SecurityException {
+		Hashtable<WildAnimalSpecification, WildAnimal> DRAKONAS = new Hashtable<WildAnimalSpecification, WildAnimal>();
+
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder builder = factory.newDocumentBuilder();
 		Document document = builder.parse(ClassLoader
 				.getSystemResourceAsStream("productMapper.xml"));
+
 		NodeList specificationToProductMap = document.getDocumentElement()
 				.getChildNodes();
 
 		for (int i = 0; i < specificationToProductMap.getLength(); i++) {
 			Node map = specificationToProductMap.item(i);
-
+			// specificationToProductMap.item(0).getLocalName();
 			NodeList specifications = map.getChildNodes();
-			// ------------------------PARSING XML SPECIFIC DATA
+			// CREATING SPECIFICATION OBJECT------------------------PARSING XML
+			// SPECIFIC DATA
+			String specificationClassName = specifications.item(0)
+					.getTextContent().trim();
+			Class[] specificationParameterTypes = getParameterTypes(specificationClassName);
+			Object[] specificationParameterValues = getParameterValues(specifications
+					.item(1).getChildNodes());
 
-			Class[] specificationParameterTypes = getParameterTypes(specifications
-					.item(0).getTextContent().trim());
-			Class[] specificationParameterValues = getParameterValues(specifications
-					.item(1));
-
-			Constructor specificationConstructor = specificationClass
-					.getConstructor(specificationParameterTypes);
-
-			Object[] values = new Object[] { 2, "haha" };
-			// parse some values
-
-			for (int j = 0; j < specifications.getLength(); j++) {
-				Node specification = specifications.item(j);
+			WildAnimalSpecification wildAnimalSpecification = null;
+			try {
+				wildAnimalSpecification = (WildAnimalSpecification) createParameter(
+						specificationClassName, specificationParameterTypes,
+						specificationParameterValues);
+			} catch (Exception e) {
+				System.out.println("Creation of Specification failed");
 			}
-
-			// ------------------------PARSING XML SPECIFIC DATA
-
 		}
 
 	}

@@ -12,4 +12,10 @@
 		<productClass>com.toohightoplay.vu.mif.ot2.products.Pussy</productClass>
 		<productProperties>legCount=4;specialPhrase=Murrrr</productProperties>
 	</map>
+	<map>
+		<specificationClass>com.toohightoplay.vu.mif.ot2.specification.DomesticAnimalSpecification</specificationClass>
+		<specificationProperties>species=Mighty Goose;role=Warrior</specificationProperties>
+		<productClass>com.toohightoplay.vu.mif.ot2.products.MightyGoose</productClass>
+		<productProperties>legsCount=2;eggsPerLay=1;com.toohightoplay.vu.mif.ot2.products.parts.SuperPower=superpower=X-ray vision;specialWeapon=Cheating</productProperties>
+	</map>
 </mapper>

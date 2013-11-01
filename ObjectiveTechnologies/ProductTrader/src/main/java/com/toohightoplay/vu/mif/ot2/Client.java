@@ -35,5 +35,11 @@ public class Client {
 				.tradeSpecificationToProduct(domesticSpecification);
 		pet.beCute();
 
+		DomesticAnimalSpecification mightySpec = new DomesticAnimalSpecification(
+				"Mighty Goose", "Warrior");
+		DomesticAnimal mightyGoose = farmer
+				.tradeSpecificationToProduct(mightySpec);
+		mightyGoose.beCute();
+
 	}
 }

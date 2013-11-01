@@ -73,3 +73,5 @@ Solution
     !!! In this particular case I use protected variables because I do not want to change them.
 
     [2] <specificationProperties> and <productProperties> structure must meet constructor parameters sequence.
+
+    [3] Currently works only with int, Integer, String and custom types(classes).

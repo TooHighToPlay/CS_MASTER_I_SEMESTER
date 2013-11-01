@@ -79,7 +79,7 @@ public abstract class ProductTrader<Specification, Product> {
 			try {
 				specificationTypeValues = getParameterValues(
 						specToProductType.getSpecificationCreationString(),
-						specificationparameterTypes);
+						specificationparameterTypes, ";");
 			} catch (Exception e) {
 				System.out.println("UUUps, values of specification failed");
 				return;
@@ -117,7 +117,7 @@ public abstract class ProductTrader<Specification, Product> {
 			try {
 				productTypeValues = getParameterValues(
 						specToProductType.getProductCreationString(),
-						productParameterTypes);
+						productParameterTypes, ";");
 			} catch (Exception e) {
 				System.out.println("UUUps, values of specification failed");
 				return;
@@ -157,16 +157,33 @@ public abstract class ProductTrader<Specification, Product> {
 	}
 
 	private static Object[] getParameterValues(String creationString,
-			Class<?>[] parameterTypes) throws ClassNotFoundException,
-			DOMException, InstantiationException, IllegalAccessException,
+			Class<?>[] parameterTypes, String separator)
+			throws ClassNotFoundException, DOMException,
+			InstantiationException, IllegalAccessException,
 			IllegalArgumentException, InvocationTargetException,
 			NoSuchMethodException, SecurityException {
 
-		String[] keyValuePairs = creationString.split(";");
+		String[] keyValuePairs = creationString.split(separator);
 		Object[] values = new Object[parameterTypes.length];
 
 		for (int i = 0; i < keyValuePairs.length; i++) {
-			if (parameterTypes[i].equals(int.class)
+			if (keyValuePairs[i].contains(".")) {
+				String[] complexValues = keyValuePairs[i].split("=");
+				String complexClassName = complexValues[0];
+				String parametersCreationString = keyValuePairs[i]
+						.substring(complexClassName.length() + 1);
+
+				Class<?>[] complexTypes;
+				complexTypes = getParameterTypes(complexClassName,
+						parametersCreationString.split(",").length);
+				Object[] complexTypeValues;
+				complexTypeValues = getParameterValues(
+						parametersCreationString, complexTypes, ",");
+				values[i] = Class.forName(complexClassName)
+						.getConstructor(complexTypes)
+						.newInstance(complexTypeValues);
+
+			} else if (parameterTypes[i].equals(int.class)
 					|| parameterTypes[i].equals(Integer.class)) {
 				values[i] = Integer.class
 						.getConstructor(Integer.TYPE)

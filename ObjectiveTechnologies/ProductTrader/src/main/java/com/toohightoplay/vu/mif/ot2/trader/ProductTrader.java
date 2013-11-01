@@ -13,6 +13,7 @@ import org.xml.sax.SAXException;
 
 import com.toohightoplay.vu.mif.ot2.parser.SpecToProductDomParser;
 import com.toohightoplay.vu.mif.ot2.parser.SpecToProductType;
+import com.toohightoplay.vu.mif.ot2.products.AbleToDeepCloneItself;
 
 /**
  * Product trader
@@ -35,7 +36,10 @@ public abstract class ProductTrader<Specification, Product> {
 	}
 
 	public Product tradeSpecificationToProduct(Specification specification) {
-		return map.get(specification);
+		@SuppressWarnings("unchecked")
+		AbleToDeepCloneItself<Product> ableToDeepCloneItself = (AbleToDeepCloneItself<Product>) map
+				.get(specification);
+		return ableToDeepCloneItself.deepClone();
 	}
 
 	/**

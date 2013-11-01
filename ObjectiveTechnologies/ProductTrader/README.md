@@ -48,7 +48,7 @@ Solution
 
 <img src="https://raw.github.com/TooHighToPlay/CS_MASTER_I_SEMESTER/master/ObjectiveTechnologies/ProductTrader/producttrader.png" alt="Method_Producer" title="Method Producer" />
 
-### Configuration file structure
+### Configuration file structure by example
 
     <?xml version="1.0" encoding="UTF-8" ?>
     <mapper>
@@ -64,6 +64,12 @@ Solution
             <productClass>com.toohightoplay.vu.mif.ot2.products.Pussy</productClass>
             <productProperties>legCount=4;specialPhrase=Murrrr</productProperties>
         </map>
+        <map>
+            <specificationClass>com.toohightoplay.vu.mif.ot2.specification.DomesticAnimalSpecification</specificationClass>
+            <specificationProperties>species=Mighty Goose;role=Warrior</specificationProperties>
+            <productClass>com.toohightoplay.vu.mif.ot2.products.MightyGoose</productClass>
+            <productProperties>legsCount=2;eggsPerLay=1;com.toohightoplay.vu.mif.ot2.products.parts.SuperPower=superpower=X-ray vision;specialWeapon=Cheating</productProperties>
+        </map>
     </mapper>
 
 ### Restrictions
@@ -75,3 +81,7 @@ Solution
     [2] <specificationProperties> and <productProperties> structure must meet constructor parameters sequence.
 
     [3] Currently works only with int, Integer, String and custom types(classes).
+
+    [4] Pay attention that I use name=value instead of name="value".
+
+    [5] Configuration space sensitive!

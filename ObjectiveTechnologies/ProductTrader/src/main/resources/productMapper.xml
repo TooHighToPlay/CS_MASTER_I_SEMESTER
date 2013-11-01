@@ -6,4 +6,10 @@
 		<productClass>com.toohightoplay.vu.mif.ot2.products.HungryCat</productClass>
 		<productProperties>scarySound=Roawrr</productProperties>
 	</map>
+	<map>
+		<specificationClass>com.toohightoplay.vu.mif.ot2.specification.DomesticAnimalSpecification</specificationClass>
+		<specificationProperties>species=Great pussy;role=Love</specificationProperties>
+		<productClass>com.toohightoplay.vu.mif.ot2.products.Pussy</productClass>
+		<productProperties>legCount=4;specialPhrase=Murrrr</productProperties>
+	</map>
 </mapper>

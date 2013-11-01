@@ -13,13 +13,9 @@ public class DomesticAnimalSpecification implements Specification {
 
 	private final String role;
 
-	private final int eggsCount;
-
-	public DomesticAnimalSpecification(String species, String role,
-			int eggsCount) {
+	public DomesticAnimalSpecification(String species, String role) {
 		this.species = species;
 		this.role = role;
-		this.eggsCount = eggsCount;
 	}
 
 	@Override
@@ -39,8 +35,6 @@ public class DomesticAnimalSpecification implements Specification {
 				.append(species,
 						((DomesticAnimalSpecification) obj).getSpecies())
 				.append(role, ((DomesticAnimalSpecification) obj).getRole())
-				.append(eggsCount,
-						((DomesticAnimalSpecification) obj).getEggsCount())
 				.isEquals();
 	}
 
@@ -48,7 +42,7 @@ public class DomesticAnimalSpecification implements Specification {
 	public int hashCode() {
 		return new HashCodeBuilder(17, 31). // two random chosen prime numbers
 				// if deriving: appendSuper(super.hashCode())
-				append(species).append(role).append(eggsCount).toHashCode();
+				append(species).append(role).toHashCode();
 	}
 
 	/**
@@ -64,12 +58,4 @@ public class DomesticAnimalSpecification implements Specification {
 	public String getRole() {
 		return role;
 	}
-
-	/**
-	 * @return the eggsCount
-	 */
-	public int getEggsCount() {
-		return eggsCount;
-	}
-
 }

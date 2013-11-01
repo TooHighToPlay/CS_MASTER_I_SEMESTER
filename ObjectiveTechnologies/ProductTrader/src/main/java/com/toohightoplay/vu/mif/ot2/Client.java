@@ -23,5 +23,7 @@ public class Client {
 				"BigKitty", "Roawrr", 4);
 		WildAnimal animal = zoologist
 				.tradeSpecificationToProduct(specification);
+		animal.scare();
+
 	}
 }

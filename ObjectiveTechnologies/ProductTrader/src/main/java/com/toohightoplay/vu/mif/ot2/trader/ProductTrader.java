@@ -58,30 +58,33 @@ public abstract class ProductTrader<Specification, Product> {
 			String specificationClass = specToProductType
 					.getSpecificationClass();
 
-			Class<?>[] parameterTypes;
+			// TYPES
+			Class<?>[] specificationparameterTypes;
 			try {
-				parameterTypes = getParameterTypes(specificationClass,
+				specificationparameterTypes = getParameterTypes(
+						specificationClass,
 						specToProductType.getSpecificationCreationString()
 								.split(";").length);
 			} catch (ClassNotFoundException e) {
 				System.out
-						.println("Smth bad happened while getting parameterTypes");
+						.println("Smth bad happened while getting specification parameterTypes");
 				return;
 			}
-			Object[] complexTypeValues;
+			// VALUES
+			Object[] specificationTypeValues;
 			try {
-				complexTypeValues = getParameterValues(
+				specificationTypeValues = getParameterValues(
 						specToProductType.getSpecificationCreationString(),
-						parameterTypes);
+						specificationparameterTypes);
 			} catch (Exception e) {
 				System.out.println("UUUps, values of specification failed");
 				return;
 			}
-
+			// CREATION
 			Specification spec;
 			try {
 				spec = (Specification) createParameter(specificationClass,
-						parameterTypes, complexTypeValues);
+						specificationparameterTypes, specificationTypeValues);
 			} catch (ClassNotFoundException | InstantiationException
 					| IllegalAccessException | IllegalArgumentException
 					| InvocationTargetException | NoSuchMethodException
@@ -90,6 +93,45 @@ public abstract class ProductTrader<Specification, Product> {
 				return;
 			}
 			// ---------------------SPECIFICATION END
+
+			// ---------------------PRODUCT START
+			String productClass = specToProductType.getProductClass();
+
+			// TYPES
+			Class<?>[] productParameterTypes;
+			try {
+				productParameterTypes = getParameterTypes(
+						productClass,
+						specToProductType.getProductCreationString().split(";").length);
+			} catch (ClassNotFoundException e) {
+				System.out
+						.println("Smth bad happened while getting product parameterTypes");
+				return;
+			}
+			// VALUES
+			Object[] productTypeValues;
+			try {
+				productTypeValues = getParameterValues(
+						specToProductType.getProductCreationString(),
+						productParameterTypes);
+			} catch (Exception e) {
+				System.out.println("UUUps, values of specification failed");
+				return;
+			}
+			// CREATION
+			Product product;
+			try {
+				product = (Product) createParameter(productClass,
+						productParameterTypes, productTypeValues);
+			} catch (ClassNotFoundException | InstantiationException
+					| IllegalAccessException | IllegalArgumentException
+					| InvocationTargetException | NoSuchMethodException
+					| SecurityException e) {
+				System.out.println("Final creation failed of specification");
+				return;
+			}
+			// ---------------------PRODUCT END
+			map.put(spec, product);
 
 		}
 	}

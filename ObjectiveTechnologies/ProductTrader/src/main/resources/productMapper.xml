@@ -3,7 +3,7 @@
 	<map>
 		<specificationClass>com.toohightoplay.vu.mif.ot2.specification.WildAnimalSpecification</specificationClass>
 		<specificationProperties>species=BigKitty;scaryPhrase=Roawrr;legs=4</specificationProperties>
-		<productClass>com.toohightoplay.vu.mif.ot2.products.Pussy</productClass>
-		<productProperties>species=ForbiddenJoy;role=pet;legs=4</productProperties>
+		<productClass>com.toohightoplay.vu.mif.ot2.products.HungryCat</productClass>
+		<productProperties>scarySound=Roawrr</productProperties>
 	</map>
 </mapper>

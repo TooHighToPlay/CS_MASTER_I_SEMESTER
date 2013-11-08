@@ -6,7 +6,7 @@ Description
 
 Second labaratory work.
 
-"Legacy porno pattern" also known as:
+This pattern is also known as:
 
     *Virtual Constructor Late Creation
 

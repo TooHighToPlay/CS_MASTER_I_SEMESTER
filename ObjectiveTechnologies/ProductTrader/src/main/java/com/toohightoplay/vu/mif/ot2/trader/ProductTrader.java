@@ -23,8 +23,6 @@ import com.toohightoplay.vu.mif.ot2.products.AbleToDeepCloneItself;
  */
 public abstract class ProductTrader<Specification, Product> {
 
-	private static final String CREATIONAL_STRING = "createFromString";
-
 	protected Hashtable<Specification, Product> map;
 
 	private final String initializationFileName;

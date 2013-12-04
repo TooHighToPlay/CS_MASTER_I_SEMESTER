@@ -1,34 +1,27 @@
-CS_MASTER_I_SEMESTER
+Object Oriented Databases
 ====================
 
 Description
 -----------
 
-Master of Computer Science 1st semester labaratory works and summary descriptions by Žilvinas Kučinskas, Vilnius University, Faculty of Mathematics and Informatics.
+First labaratory work.
 
-Subjects
---------
+Technologies
+------------
 
-Current active courses:
+I have used:
 
-    [1] Objective Technologies
+    * Eclipse Kepler
 
-    [2] Objective Databases
+    * ObjectDB
 
-    [3] Software Architecture
+    * Glassfish 3.1
 
-    [4] Project Management
+    * Java EE (JPA, EJB, JSP)
 
-Disclaimer
-----------
+Final result
+------------
 
-This pack is only for learning intention.
+I provide screenshot of final result:
 
-Notes
------
-
-Report bugs, errors, misunderstandings, bad coding style or whatever content you think needs to be corrected or upgraded directly to me.
-
-Follow me on ->
-
-    * https://twitter.com/TooHighToPlay
+<img src="https://raw.github.com/TooHighToPlay/CS_MASTER_I_SEMESTER/master/ObjectOrientedDatabases/images/ODB.png" alt="ODB" title="ODB" />

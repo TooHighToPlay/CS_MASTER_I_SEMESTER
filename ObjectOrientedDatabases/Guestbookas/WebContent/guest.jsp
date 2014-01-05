@@ -53,6 +53,30 @@
 			type="text" name="hotelId" /> Assign guest id: <input type="text"
 			name="guestId" /> <input type="submit" value="Assign" />
 	</form>
+	
+	<hr>
+
+	<h3>Search hotels by customer Name</h3>
+
+	<hr>
+		
+	<form method="POST" action="guest">
+		<input type="hidden" name="Search"> Search by Name: <input
+			type="text" name="name" /> <input type="submit" value="Search" />
+	</form>
+	
+	Result:
+	<ul>
+			<%
+            @SuppressWarnings("unchecked") 
+            List<Hotel> result = (List<Hotel>)request.getAttribute("searchResult");
+            if (result != null) {
+                for (Hotel hotel : result) { %>
+		<li><%= hotel.toString() %></li>
+		<%
+                }
+            } %>
+	</ul>
 	<hr>
 
 	<h3>List of Guests</h3>

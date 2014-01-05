@@ -1,5 +1,7 @@
 package guest;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.ejb.Stateless;
@@ -7,6 +9,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
+
+import com.sun.xml.bind.v2.runtime.unmarshaller.XsiNilLoader.Array;
 
 @Stateless
 public class GuestDao {
@@ -49,5 +53,12 @@ public class GuestDao {
 				.createQuery("SELECT FROM RegularGuest g WHERE g.address.fullAddress = :address");
 		String defaultAddress = "default regular address for simplicity";
 		return query.setParameter("address", defaultAddress).getResultList().size();
+	}
+
+	public List<String> searchHotelByCustomerName(String name) {
+
+		Query query = em
+				.createQuery("SELECT FROM Hotel h, Guest g WHERE g.name = :name AND g MEMBER OF h.guests");
+		return query.setParameter("name", name).getResultList();
 	}
 }

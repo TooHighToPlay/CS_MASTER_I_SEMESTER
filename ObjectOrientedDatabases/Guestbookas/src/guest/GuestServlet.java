@@ -59,6 +59,10 @@ public class GuestServlet extends HttpServlet {
 					guestDao.updateNameById(id, newName);
 				}
 			}
+		} else if (request.getParameter("Search") != null) {
+			if (name != null) {
+				request.setAttribute("searchResult", guestDao.searchHotelByCustomerName(name));
+			}
 		}
 		// Display the list of guests:
 		doGet(request, response);

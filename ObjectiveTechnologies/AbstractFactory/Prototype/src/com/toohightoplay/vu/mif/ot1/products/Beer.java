@@ -5,7 +5,7 @@ package com.toohightoplay.vu.mif.ot1.products;
  */
 public interface Beer extends Cloneable {
 
-    public void drink();
-    
-    public Beer clone();
+	public void drink();
+
+	public Beer clone(double promiles);
 }

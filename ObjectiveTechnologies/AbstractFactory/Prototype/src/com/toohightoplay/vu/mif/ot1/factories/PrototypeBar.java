@@ -31,8 +31,9 @@ public class PrototypeBar implements Bar {
 	}
 
 	@Override
-	public Beer serveBeer() {
-		return exampleBeer.clone();
+	public Beer serveBeer(double promiles) {
+
+		return exampleBeer.clone(promiles);
 	}
 
 	@Override

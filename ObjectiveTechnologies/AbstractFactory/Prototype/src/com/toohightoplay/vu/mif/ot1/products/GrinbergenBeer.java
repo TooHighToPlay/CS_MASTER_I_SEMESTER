@@ -38,9 +38,9 @@ public class GrinbergenBeer implements Beer {
 	}
 
 	@Override
-	public Beer clone() {
+	public Beer clone(double promiles) {
 
-		return new GrinbergenBeer(promiles, luckyNumber);
+		return new GrinbergenBeer(promiles, this.luckyNumber);
 	}
 
 	public void tryWinLottery() {

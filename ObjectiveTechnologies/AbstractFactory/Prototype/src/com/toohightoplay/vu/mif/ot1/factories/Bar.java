@@ -9,10 +9,10 @@ import com.toohightoplay.vu.mif.ot1.products.Snacks;
  */
 public interface Bar {
 
-    public abstract Beer serveBeer();
+	public abstract Beer serveBeer(double promiles);
 
-    public abstract Snacks serveSnacks();
+	public abstract Snacks serveSnacks();
 
-    public abstract Meal serveMeal();
+	public abstract Meal serveMeal();
 
 }

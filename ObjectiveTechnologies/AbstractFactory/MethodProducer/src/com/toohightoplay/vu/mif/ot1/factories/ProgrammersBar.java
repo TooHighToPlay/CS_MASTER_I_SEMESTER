@@ -27,9 +27,9 @@ public class ProgrammersBar implements Bar {
     }
 
     @Override
-    public Beer serveBeer() {
+    public Beer serveBeer(double promiles) {
     	
-        return new GrinbergenBeer(5.8, generateLuckyNumber());
+        return new GrinbergenBeer(promiles, generateLuckyNumber());
     }
     
     private int generateLuckyNumber() {

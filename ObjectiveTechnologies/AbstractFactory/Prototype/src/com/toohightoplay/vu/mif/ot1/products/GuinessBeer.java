@@ -22,7 +22,8 @@ public class GuinessBeer implements Beer {
 	}
 
 	@Override
-	public Beer clone() {
+	public Beer clone(double promiles) {
+
 		return new GuinessBeer(greetings);
 	}
 

@@ -100,7 +100,7 @@ public class Client {
 				System.out.println("I still need time to consider my option");
 				break;
 			case DRINK:
-				bar.serveBeer().drink();
+				bar.serveBeer(5.2).drink();
 				break;
 			case NIBBLE:
 				bar.serveSnacks().nibble();
@@ -151,10 +151,10 @@ public class Client {
 				case NO_DRINK:
 					throw new YouShallNotPassException("Impossible decision. I need to terminate JAVA, OS and the universe by itself.");
 				case SPECIAL_DRINK:
-					((GrinbergenBeer) bar.serveBeer()).drinkWithEffects();
+					((GrinbergenBeer) bar.serveBeer(5.2)).drinkWithEffects();
 					break;
 				case DRINK:
-					bar.serveBeer().drink();
+					bar.serveBeer(5.2).drink();
 					break;
 				}
 				break;

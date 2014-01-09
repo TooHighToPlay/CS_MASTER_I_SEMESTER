@@ -25,7 +25,7 @@ public class ClassicalBar implements Bar {
     }
 
     @Override
-    public Beer serveBeer() {
+    public Beer serveBeer(double promiles) {
 
         return new GuinessBeer("Taste it. Believe it.");
     }
